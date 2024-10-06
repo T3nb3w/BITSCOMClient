@@ -14,7 +14,7 @@ int wmain(int argc, wchar_t* argv[])
 
     IBackgroundCopyManager* pMgr;
     if (FAILED(CoCreateInstance(CLSID_BackgroundCopyManager, nullptr, CLSCTX_ALL,
-        IID_IBackgroundCopyManager, (void**)&pMgr)))
+        IID_IBackgroundCopyManager, reinterpret_cast<void**>(&pMgr))))
     {
         CoUninitialize();
         return 1;
